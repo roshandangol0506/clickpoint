@@ -14,11 +14,11 @@ const passport = require("passport");
 const MongoStore = require("connect-mongo");
 const cookieParser = require("cookie-parser");
 
-PORT = 8000;
+PORT = process.env.PORT;
 
 const app = express();
 
-connectTomongoDB("mongodb://localhost:27017/clickpoint").then(() =>
+connectTomongoDB(process.env.mongodb_connection).then(() =>
   console.log("Connected to MongoDB")
 );
 
